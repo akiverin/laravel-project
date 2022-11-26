@@ -1,0 +1,36 @@
+@use "../utils/mixins" as m;
+@use "../utils/variables" as v;
+
+.footer {
+    background-color: rgb(252 241 230 / 80%);
+    padding-top: 30px;
+    border-top: 1px solid black;
+}
+
+.footer__logo {
+    height: 40px;
+}
+
+.footer__wrapper {
+    @include m.wrapper;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.footer__author {
+    font-size: 1.35rem;
+    line-height:150%;
+}
+
+.footer__subtext {
+    color: #3c3328e1;
+}
+
+.footer__navigate ul {
+    flex-direction: column;
+    margin-top: 26px;
+    & li {
+        margin: 0 0 6px 0;
+    }
+}

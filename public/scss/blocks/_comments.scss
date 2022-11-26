@@ -1,0 +1,161 @@
+@use "../utils/mixins" as m;
+@use "../utils/variables" as v;
+
+.comments__title {
+    font-size: 2.8rem;
+    margin: 36px 0 10px;
+    @media screen and (max-width: 480px) {
+        font-size: 2.2rem;
+    }
+}
+
+.comments__list {
+    list-style: none;
+}
+
+.comments__item {
+    position: relative;
+    border-bottom: 1.6px solid black;
+    padding: 10px 6px;
+    margin-top: 16px;
+
+    &:hover .comments__actions {
+        opacity: 1;
+        display: flex;
+        gap: 6px;
+    }
+}
+
+
+.comments__actions {
+    transition: all 0.4s ease;
+    display: none;
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+
+.comments__author {
+    display: flex;
+    font-size: 2rem;
+    align-items: center;
+    margin-bottom: 14px;
+}
+
+.comments__avatar {
+    height: 32px;
+    width: 32px;
+    border-radius: 32px;
+    margin-right: 16px;
+}
+
+.comments__text {
+    font-size: 1.6rem;
+    margin-bottom: 10px;
+}
+
+.comments__form {
+    margin-top: 24px;
+    padding-bottom: 40px;
+}
+
+.comments__field {
+    display: flex;
+    flex-direction: column;
+    border: 1.6px solid black;
+    padding: 10px 12px;
+    margin-bottom: 8px;
+}
+
+.comments__input {
+    padding: 6px 6px 8px;
+    font-size: 1.6rem;
+    border: none;
+    border-bottom: 1.6px solid transparent;
+    border-color: #e7c4b12c;
+    background: none;
+    outline: none;
+    &:focus {
+        border-bottom: 1.6px solid transparent;
+        border-color: #E7C4B1;
+    }
+}
+
+.comments__textarea {
+    font-size: 1.6rem;
+    height: 140px;
+    outline: none;
+    padding: 8px;
+    border-bottom: 1.6px solid transparent;
+    border-color: #e7c4b12c;
+    background: none;
+    resize: vertical;
+    &:focus {
+        border-color: #E7C4B1;
+    }
+}
+
+.comments__label {
+    font-size: 1.4rem;
+    margin-bottom: 8px;
+}
+
+.comments__button {
+    padding:10px 12px;
+    font-weight: 500;
+    line-height: 1.2;
+    font-size: 1.45rem;
+    border-radius: 10px;
+    text-transform: uppercase;
+    background: v.$artblue;
+    cursor: pointer;
+    font-weight: 500;
+    border: 1.4px solid transparent;
+    &:hover {
+        border: 1.4px solid blue;
+        color: blue;
+    }
+}
+
+.comments__delete {
+    width: 36px;
+    height: 36px;
+    border: none;
+    background: white;
+    cursor: pointer;
+    border-radius: 24px;
+    padding: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0.64;
+    filter: drop-shadow(0px 0px 2px rgba(0, 0, 0, 0.08)) drop-shadow(0px 4px 16px rgba(0, 0, 0, 0.08));
+    &:hover {
+        opacity: 1;
+        filter: drop-shadow(0px 0px 2px rgba(0, 0, 0, 0.08)) drop-shadow(0px 4px 16px rgba(0, 0, 0, 0.08));
+        color: none;
+        border: none;
+    }
+}
+
+.comments__edit {
+    width: 36px;
+    height: 36px;
+    border: none;
+    background: white;
+    cursor: pointer;
+    color: blue;
+    border-radius: 24px;
+    padding: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0.64;
+    filter: drop-shadow(0px 0px 2px rgba(0, 0, 0, 0.08)) drop-shadow(0px 4px 16px rgba(0, 0, 0, 0.08));
+    &:hover {
+        opacity: 1;
+        filter: drop-shadow(0px 0px 2px rgba(0, 0, 0, 0.08)) drop-shadow(0px 4px 16px rgba(0, 0, 0, 0.08));
+        color: none;
+        border: none;
+    }
+}

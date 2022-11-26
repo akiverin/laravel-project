@@ -1,0 +1,22 @@
+@use "variables";
+
+@mixin reset {
+    margin: 0;
+    padding: 0;
+}
+
+@mixin wrapper {
+    max-width: 1440px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 80px;
+
+    @media screen and (max-width: 480px) {
+        max-width: 300px;
+        padding: 0 4px;
+    }
+    @media screen and (max-width: 768px) and  (min-width: 480px) {
+        max-width: 540px;
+        padding: 0 28px;
+    }
+}

@@ -1,0 +1,137 @@
+@use "../utils/mixins" as m;
+@use "../utils/variables" as v;
+
+.slider {
+    margin-top: 80px;
+    padding-top: 40px;
+    position: relative;
+}
+
+.slider__wrapper {
+    // width: 1140px;
+    overflow: hidden;
+    // overflow-x: scroll;
+}
+
+.slider__item{
+    position: relative;
+    width: 380px;
+}
+
+.slider__list {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.slider__link {
+    color: v.$mytext;
+    text-decoration: none;
+    cursor: pointer;
+    display: flex;
+    margin-right: 40px;
+    &_end {
+        position: absolute;
+        font-size: 1.2rem;
+        bottom: 0;
+        display: flex;
+        align-items: center;
+
+    }
+    &:hover{
+        background-color: rgba(231, 195, 149, 0.12);
+    }
+}
+
+.slider__info {
+    height: 140px;
+    width: 160px;
+    margin-right: 20px;
+    &:after {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 160px;
+        height: 25px;
+        background: linear-gradient(180deg, #FEF8F200, #FEF8F2 100%);
+    }
+}
+
+.slider__date {
+    background-color: #d6efd1;
+    font-size: 1.25rem;
+    padding: 4px 0;
+    margin-bottom: 6px;
+    width: 80px;
+    text-align: center;
+}
+
+.slider__title {
+    font-size: 1.6rem;
+    margin-bottom: 4px;
+    letter-spacing: 0.05rem;
+    &:hover {
+        text-decoration: underline;
+    }
+}
+
+.slider__description {
+    font-size: 1.2rem;
+}
+
+.slider__image {
+    height: 160px;
+    width: 160px;
+    object-fit: cover;
+}
+
+.slider__action {
+    position: absolute;
+    right: 0;
+    top: 0;
+    z-index: 2;
+}
+
+.slider__button {
+    position: relative;
+    width: 2.5em;
+    height: 2.5em;
+    border: 1px solid;
+    border-radius: 50%;
+    margin-left: 1em;
+    overflow: hidden;
+    color: #f4583d;
+        &:before {
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 80%;
+            height: 80%;
+            border-radius: 50%;
+            background-color: orangered;
+            opacity: 0;
+            transform: translate3d(-50%,-50%,0) scale(0);
+            transform-origin: center;
+            transition: transform .25s cubic-bezier(.215,.61,.355,1),opacity .25s cubic-bezier(.215,.61,.355,1);
+            z-index: 0;
+    }
+    &:hover:before {
+        opacity: 1;
+        transform: translate3d(-50%,-50%,0) scale(1);
+    }
+}
+.slider__icon {
+    transform: rotateZ(0deg);
+}
+.slider__icon_left{
+    transform: rotateZ(180deg);
+}
+
+.slider__button:disabled {
+    cursor: no-drop;
+    border-color: black;
+    &::before {
+        background-color: transparent;
+    }
+}

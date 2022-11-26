@@ -1,0 +1,71 @@
+@use "../utils/mixins" as m;
+@use "../utils/variables" as v;
+
+.home {
+    background-color: #FEF8F2;
+    // padding-top: 80px;
+    padding-bottom: 60px;
+    // height: calc(100vh - 140px - 60px);
+}
+
+.home__wrapper {
+    @include m.wrapper;
+    margin-top: 80px;
+    justify-content: space-between;
+}
+
+.home__title {
+    @include m.reset;
+    font-size: 6.4rem;
+    font-weight: 600;
+    margin-bottom: 32px;
+    @media screen and (max-width: 480px) {
+        font-size: 4.4rem;
+    }
+}
+
+.home__subtitle {
+    font-size: 2rem;
+    font-weight: 300;
+    line-height: 135%;
+    margin-bottom: 56px;
+}
+
+.home__link {
+    position: relative;
+    color: black;
+    text-decoration: none;
+    font-size: 1.4rem;
+    padding: 1rem 1.25rem;
+    border-radius: 1px;
+    text-transform: uppercase;
+    z-index: 3;
+    &::after {
+        transition: transform .45s cubic-bezier(0.165, 0.84, 0.44, 1);
+        content: "";
+        position: absolute;
+        left: -1px;
+        bottom: -1px;
+        width: calc(100% + 2px);
+        height: calc(100% + 2px);
+        background-color: v.$artblue;
+        transform-origin: top center;
+        transform: scaleY(0);
+        z-index: 2;
+        &:hover {
+            transform: scaleY(1);
+            z-index: -4;
+            transform-origin: bottom center;
+        }
+    }
+    &:hover {
+        color: rgb(23, 56, 118);
+        &::after {
+            transform: scaleY(1);
+            transform-origin: bottom center;
+        }
+    }
+    & span {
+        z-index: 11;
+    }
+}

@@ -1,0 +1,112 @@
+@use "../utils/mixins" as m;
+@use "../utils/variables" as v;
+
+.article {
+    background-color: #FEF8F2;
+    color: v.$mytext;
+}
+
+.article__wrapper {
+    @include m.wrapper;
+    justify-content: space-between;
+    padding-bottom: 40px;
+}
+
+.article__date {
+    font-size: 1.4rem;
+    padding: 24px 0 18px;
+}
+
+.article__info {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+    @media screen and (max-width: 900px){
+        grid-template-columns: 1fr; 
+        gap: 16px;   
+    }
+}
+
+.article__image {
+    width: 100%;
+    @media screen and (max-width: 900px){
+        grid-row: 1;  
+    }
+}
+
+.article__title {
+    margin-top: 40px;
+    font-size: 4rem;
+    margin-bottom: 1.8rem;
+}
+
+.article__text {
+    font-size: 1.55rem;
+    line-height: 2.175rem;
+    margin-bottom: 36px;
+}
+
+.articles__head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.article__button {
+    padding: 8px 12px;
+    border-radius: 2px;
+    border: 1.5px solid black;
+    color: black;
+    cursor: pointer;
+    font-size: 1.5rem;
+    text-decoration: none;
+    transition: all 0.1s ease;
+}
+
+.article__delete{
+    margin-left: 12px;  
+    &:hover {
+        border: 1.5px solid v.$myred;
+        color: v.$myred;
+    }
+}
+
+.article__edit{
+    &:hover {
+        border: 1.5px solid v.$myblue;
+        color: v.$myblue;
+    }
+}
+
+@media screen and (max-width: 900px) {
+    .article__dinamic {
+        grid-row: 1;
+    }
+}
+
+
+.summary {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    margin-top: 20px;
+    padding: 4% 6%;
+    border-radius: 16px;
+    box-shadow: 0 0 0 1px #f2f2f2;
+    flex-wrap: wrap;
+
+    .summary-item {
+
+        .item-title {
+            color: #999;
+            font-size: 1.4rem;
+            font-weight: 500;
+        }
+
+        .item-text {
+            margin-top: 12px;
+            font-size: 1.64rem;
+        }
+    }
+}

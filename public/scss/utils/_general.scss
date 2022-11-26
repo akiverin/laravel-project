@@ -1,0 +1,40 @@
+@use "../utils/mixins" as m;
+@use "../utils/variables" as v;
+
+/* Invisible */
+.visually-hidden {
+    position: absolute;
+    clip: rect(0, 0, 0, 0);
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+}
+
+html {
+    width: 100%;
+    max-width: 100%;
+    font-size: 62.5%;
+    line-height: 62.5%;
+}
+
+*,
+*::before,
+*::after {
+    @include m.reset;
+    box-sizing: border-box;
+
+}
+
+body {
+    font-family: 'Lato', sans-serif;
+    position: relative;
+}
+
+@media screen and (max-width: 1488px) {
+
+    section,
+    header,
+    footer {
+        padding: 0 20px;
+    }
+}
